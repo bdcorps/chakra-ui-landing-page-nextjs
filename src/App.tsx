@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Box,
   Button,
@@ -7,9 +6,7 @@ import {
   Heading,
   Text,
   VStack,
-  Wrap,
   Image,
-  WrapItem,
   Accordion,
   AccordionButton,
   AccordionIcon,
@@ -18,25 +15,10 @@ import {
   Flex,
   Spacer,
   SimpleGrid,
-  Grid,
-  GridItem,
-  useColorMode,
+  LinkBox,
+  LinkOverlay,
 } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
-
-function Testimonial() {
-  return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" p={4}>
-      <Text>
-        Example Video Editor is the best in the game. It has saved me 10 hours
-        of work every week. Highly recommended for day to day marketers!
-      </Text>
-      <Text align="right" mt={4}>
-        - Sukh (Social Media Ad creator)
-      </Text>
-    </Box>
-  );
-}
 
 function FAQ({ items }: any) {
   return (
@@ -62,40 +44,56 @@ function FAQ({ items }: any) {
   );
 }
 
-function App() {
+const App = () => {
   const site = {
     name: "Launchman",
-    title: "The landing page stack for modern teams",
-    image:
-      "https://assets-global.website-files.com/5fb2b5d778be407a560568d8/601164cc9156d4e7ded7c054_home-hero_dark.png",
+    title: "Your landing pages can bring in 10x more search traffic",
     description:
-      "Launchman is a no-code tool that lets you create landing pages at scale with Programmatic SEO",
+      "Launchman lets you generate landing pages that target long-tailed keywords at scale. Pages are server-side rendered so Google ranks you better than your typical React SPA.",
+    image:
+      "https://assets-global.website-files.com/5fb2b5d778be407a560568d8/60256ca15179d3117fd1f3ab_home-selector-recruiting.png",
+    features: [
+      {
+        title: "Chat via Slack or email",
+        description:
+          "Chat with us throughout the day by adding us to your own Slack channel or simply send us an email.",
+      },
+      {
+        title: "Chat via Slack or email",
+        description:
+          "Chat with us throughout the day by adding us to your own Slack channel or simply send us an email.",
+      },
+    ],
+    faq: [
+      {
+        q: "Can I bring my own design?",
+        a: "We can chat about the page design that you would want to use.",
+      },
+      {
+        q: "I have slightly different needs, how can I contact you?",
+        a: "Email me at sukh@saasbase.dev",
+      },
+      {
+        q: "Can I bring my own design?",
+        a: "We can chat about the page design that you would want to use.",
+      },
+      {
+        q: "I have slightly different needs, how can I contact you?",
+        a: "Email me at sukh@saasbase.dev",
+      },
+    ],
+    twitterHandle: "thisissukh_",
   };
 
-  const { name, title, description, image } = site;
+  const { name, title, description, image, features, faq, twitterHandle } =
+    site;
 
-  const items: any[] = [
-    {
-      q: "Can I bring my own design?",
-      a: "We can chat about the page design that you would want to use.",
-    },
-    {
-      q: "I have slightly different needs, how can I contact you?",
-      a: "Email me at sukh@saasbase.dev",
-    },
-    {
-      q: "Can I bring my own design?",
-      a: "We can chat about the page design that you would want to use.",
-    },
-    {
-      q: "I have slightly different needs, how can I contact you?",
-      a: "Email me at sukh@saasbase.dev",
-    },
-  ];
   return (
     <>
       <Helmet>
-        <title>Sample Landing Page</title>
+        <title>
+          {name} | {title}
+        </title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
@@ -111,7 +109,7 @@ function App() {
                   {name}
                 </Text>
 
-                <Container textAlign="center">
+                <Container maxW="container.md" textAlign="center">
                   <Heading size="2xl" mb={4} color="gray.700">
                     {title}
                   </Heading>
@@ -122,18 +120,14 @@ function App() {
                     mt={8}
                     colorScheme="brand"
                     onClick={() => {
-                      window.open(
-                        "https://buy.stripe.com/14k6se2ub73ca64cMN",
-                        "_blank"
-                      );
+                      window.open("https://launchman.cc", "_blank");
                     }}
                   >
                     I need this for $10/month →
                   </Button>
 
                   <Text my={2} fontSize="sm" color="gray.500">
-                    102+ builders have trusted us to grow their MRR in the last
-                    month
+                    102+ builders have signed up in the last 30 days
                   </Text>
                 </Container>
               </VStack>
@@ -143,58 +137,20 @@ function App() {
 
         <Container maxW="container.2xl">
           <Center p={[0, 10]}>
-            <Image src="https://assets-global.website-files.com/5fb2b5d778be407a560568d8/60256ca15179d3117fd1f3ab_home-selector-recruiting.png"></Image>
+            <Image src={image}></Image>
           </Center>
         </Container>
 
-        <Container maxW="container.2xl" centerContent py={20}>
-          {/* <Text fontWeight={500} fontSize="2xl" align="center" mb={10}>
-            Packed with powerful features
-          </Text> */}
-
-          <SimpleGrid spacingX="40px" spacingY="20px" minChildWidth="300px">
-            <Box p="6" rounded="md">
-              <Text fontWeight={500}>Chat via Slack or email</Text>
-              <Text color="gray.500" mt={4}>
-                Chat with us throughout the day by adding us to your own Slack
-                channel or simply send us an email.
-              </Text>
-            </Box>
-            <Box p="6" rounded="md">
-              <Text fontWeight={500}>Chat via Slack or email</Text>
-              <Text color="gray.500" mt={4}>
-                Chat with us throughout the day by adding us to your own Slack
-                channel or simply send us an email.
-              </Text>
-            </Box>
-            <Box p="6" rounded="md">
-              <Text fontWeight={500}>Chat via Slack or email</Text>
-              <Text color="gray.500" mt={4}>
-                Chat with us throughout the day by adding us to your own Slack
-                channel or simply send us an email.
-              </Text>
-            </Box>
-            <Box p="6" rounded="md">
-              <Text fontWeight={500}>Chat via Slack or email</Text>
-              <Text color="gray.500" mt={4}>
-                Chat with us throughout the day by adding us to your own Slack
-                channel or simply send us an email.
-              </Text>
-            </Box>{" "}
-            <Box p="6" rounded="md">
-              <Text fontWeight={500}>Chat via Slack or email</Text>
-              <Text color="gray.500" mt={4}>
-                Chat with us throughout the day by adding us to your own Slack
-                channel or simply send us an email.
-              </Text>
-            </Box>{" "}
-            <Box p="6" rounded="md">
-              <Text fontWeight={500}>Chat via Slack or email</Text>
-              <Text color="gray.500" mt={4}>
-                Chat with us throughout the day by adding us to your own Slack
-                channel or simply send us an email.
-              </Text>
-            </Box>
+        <Container maxW="container.2xl" centerContent my={24}>
+          <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">
+            {features.map(({ title, description }) => (
+              <Box p="6" rounded="md">
+                <Text fontWeight={500}>{title}</Text>
+                <Text color="gray.500" mt={4}>
+                  {description}
+                </Text>
+              </Box>
+            ))}
           </SimpleGrid>
         </Container>
 
@@ -204,7 +160,7 @@ function App() {
               <Text fontWeight={500} fontSize="2xl" align="center">
                 Frequently asked questions
               </Text>
-              <FAQ items={items} />
+              <FAQ items={faq} />
             </VStack>
           </Box>
         </Container>
@@ -218,21 +174,17 @@ function App() {
                 align="center"
                 color="white"
               >
-                Subscribe to Webflow Inspo
+                Subscribe to {name}
               </Text>
               <Text fontSize="lg" align="center" color="white">
-                Get the best, coolest, and latest in design and no-code
-                delivered to your inbox each week.
+                {description}
               </Text>
             </VStack>
 
             <Button
               size="lg"
               colorScheme="brand"
-              onClick={() =>
-                (window.location.href =
-                  "https://buy.stripe.com/14k6se2ub73ca64cMN")
-              }
+              onClick={() => (window.location.href = "https://launchman.cc")}
             >
               I want this!
             </Button>
@@ -242,20 +194,24 @@ function App() {
         <Container maxW="container.lg">
           <Flex py={6}>
             <Box>
-              <Text>C 2022 Launchman</Text>
-
-              <Text>Made by Jakib and Marta</Text>
+              <Text>© 2022 Launchman</Text>
+              <Text>Made by Sukh</Text>
             </Box>
             <Spacer />
 
-            <Center w="48px" h="48px">
-              <Image src="./twitter.svg"></Image>
-            </Center>
+            <LinkBox>
+              <LinkOverlay
+                href={`https://twitter.com/${twitterHandle}`}
+                isExternal
+              >
+                <Image src="./twitter.svg"></Image>
+              </LinkOverlay>
+            </LinkBox>
           </Flex>
         </Container>
       </Box>
     </>
   );
-}
+};
 
 export default App;
