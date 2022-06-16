@@ -20,6 +20,7 @@ import {
   SimpleGrid,
   Grid,
   GridItem,
+  useColorMode,
 } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
 
@@ -62,20 +63,16 @@ function FAQ({ items }: any) {
 }
 
 function App() {
-  let targetSite;
+  const site = {
+    name: "Launchman",
+    title: "The landing page stack for modern teams",
+    image:
+      "https://assets-global.website-files.com/5fb2b5d778be407a560568d8/601164cc9156d4e7ded7c054_home-hero_dark.png",
+    description:
+      "Launchman is a no-code tool that lets you create landing pages at scale with Programmatic SEO",
+  };
 
-  if (!targetSite) {
-    targetSite = {
-      name: "Launchman",
-      title: "The data-driven CRM for modern teams",
-      image:
-        "https://assets-global.website-files.com/5fb2b5d778be407a560568d8/601164cc9156d4e7ded7c054_home-hero_dark.png",
-      description:
-        "Attio gives you all you need to build the perfect relationship management tool for your team.",
-    };
-  }
-
-  const { name, title, description, image } = targetSite;
+  const { name, title, description, image } = site;
 
   const items: any[] = [
     {
@@ -105,12 +102,12 @@ function App() {
         ></meta>
       </Helmet>
 
-      <Box backgroundColor="gray.50">
+      <Box bg="gray.50">
         <Container maxW="container.lg">
           <Box>
             <Center p={4} minHeight="70vh">
               <VStack>
-                <Text fontWeight={500} fontSize="lg" color="#5000FF">
+                <Text fontWeight={500} fontSize="lg" color="brand.500">
                   {name}
                 </Text>
 
@@ -131,11 +128,12 @@ function App() {
                       );
                     }}
                   >
-                    I need this for $10/month/site →
+                    I need this for $10/month →
                   </Button>
 
                   <Text my={2} fontSize="sm" color="gray.500">
-                    102+ marketers have trusted us to grow their businesses
+                    102+ builders have trusted us to grow their MRR in the last
+                    month
                   </Text>
                 </Container>
               </VStack>
@@ -250,12 +248,9 @@ function App() {
             </Box>
             <Spacer />
 
-            <Box
-              rounded="lg"
-              backgroundColor="gray.400"
-              w="48px"
-              h="48px"
-            ></Box>
+            <Center w="48px" h="48px">
+              <Image src="./twitter.svg"></Image>
+            </Center>
           </Flex>
         </Container>
       </Box>
