@@ -134,48 +134,9 @@ function App() {
                     I need this for $10/month/site →
                   </Button>
 
-                  {/* <Text >
-                  102+ marketers have trusted us to expand their TOFT growth
-                </Text> */}
-
-                  <Grid templateColumns="repeat(3, 1fr)" gap={6} mt={16}>
-                    <GridItem w="100%" h="6">
-                      <Image
-                        src="https://www.aerotime.com/img/swiggy.svg"
-                        opacity={0.75}
-                      ></Image>
-                    </GridItem>
-                    <GridItem w="100%" h="6">
-                      <Image
-                        src="https://www.aerotime.com/img/swiggy.svg"
-                        opacity={0.75}
-                      ></Image>
-                    </GridItem>
-                    <GridItem w="100%" h="6">
-                      <Image
-                        src="https://www.aerotime.com/img/swiggy.svg"
-                        opacity={0.75}
-                      ></Image>
-                    </GridItem>
-                    <GridItem w="100%" h="6">
-                      <Image
-                        src="https://www.aerotime.com/img/swiggy.svg"
-                        opacity={0.75}
-                      ></Image>
-                    </GridItem>
-                    <GridItem w="100%" h="6">
-                      <Image
-                        src="https://www.aerotime.com/img/swiggy.svg"
-                        opacity={0.5}
-                      ></Image>
-                    </GridItem>
-                    <GridItem w="100%" h="6">
-                      <Image
-                        src="https://www.aerotime.com/img/swiggy.svg"
-                        opacity={0.5}
-                      ></Image>
-                    </GridItem>
-                  </Grid>
+                  <Text my={2} fontSize="sm" color="gray.500">
+                    102+ marketers have trusted us to grow their businesses
+                  </Text>
                 </Container>
               </VStack>
             </Center>
