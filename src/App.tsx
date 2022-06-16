@@ -137,7 +137,10 @@ const App = () => {
 
         <Container maxW="container.2xl">
           <Center p={[0, 10]}>
-            <Image src={image}></Image>
+            <Image
+              src={image}
+              alt="Sample product image from attio.com"
+            ></Image>
           </Center>
         </Container>
 
