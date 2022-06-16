@@ -22,7 +22,7 @@ import { Helmet } from "react-helmet";
 
 function FAQ({ items }: any) {
   return (
-    <Box borderWidth="1px" borderRadius="lg" w="full">
+    <Box borderWidth="1px" borderRadius="lg" w="full" p={4}>
       <Accordion>
         {items.map((item: any, i: number) => {
           return (
@@ -54,14 +54,19 @@ const App = () => {
       "https://assets-global.website-files.com/5fb2b5d778be407a560568d8/60256ca15179d3117fd1f3ab_home-selector-recruiting.png",
     features: [
       {
-        title: "Chat via Slack or email",
+        title: "No-code",
         description:
-          "Chat with us throughout the day by adding us to your own Slack channel or simply send us an email.",
+          "We are No-Code friendly. There is no coding required to get started. Launchman connects with Airtable and lets you generate a new page per row. It's just that easy!",
       },
       {
-        title: "Chat via Slack or email",
+        title: "Make Google happy",
         description:
-          "Chat with us throughout the day by adding us to your own Slack channel or simply send us an email.",
+          "We render all our pages server-side; when Google's robots come to index your site, the page does not have to wait for JS to be fetched. This helps you get ranked higher.",
+      },
+      {
+        title: "Rapid experimenting",
+        description:
+          "You don't have to wait hours to update your hard-coded landing pages. Figure out what resonates with your customers the most and update the copy in seconds",
       },
     ],
     faq: [
@@ -144,10 +149,10 @@ const App = () => {
           </Center>
         </Container>
 
-        <Container maxW="container.2xl" centerContent my={24}>
+        <Container maxW="container.xl" centerContent my={24}>
           <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">
             {features.map(({ title, description }) => (
-              <Box p="6" rounded="md">
+              <Box p={4} rounded="md">
                 <Text fontWeight={500}>{title}</Text>
                 <Text color="gray.500" mt={4}>
                   {description}
