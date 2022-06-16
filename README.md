@@ -1,7 +1,9 @@
 # Chakra UI SaaS product landing page [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/thisissukh_.svg?style=social&label=Follow%20%40Sukh)](https://twitter.com/thisissukh_)
 
+
 <p align="center">
   <a href="https://launchman.cc"><img src="https://pbs.twimg.com/media/FVVcQd1WUAA2YOx?format=jpg&name=4096x4096" alt="Landing page preview"></a>
+  <a href="https://chakra-ui-landing-page.vercel.app/">View demo</a>
 </p>
 
 ### Features
