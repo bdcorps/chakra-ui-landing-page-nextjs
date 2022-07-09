@@ -1,28 +1,28 @@
 import {
-  Box,
-  Button,
-  Center,
-  Container,
-  Heading,
-  Text,
-  VStack,
-  Image,
   Accordion,
   AccordionButton,
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
+  Box,
+  Button,
+  Center,
+  Container,
   Flex,
-  Spacer,
-  SimpleGrid,
+  Heading,
+  Image,
   LinkBox,
   LinkOverlay,
+  SimpleGrid,
+  Spacer,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
 
 function FAQ({ items }: any) {
   return (
-    <Box borderWidth="1px" borderRadius="lg" w="full" p={4}>
+    <Box borderRadius="lg" w="full" p={4}>
       <Accordion>
         {items.map((item: any, i: number) => {
           return (
@@ -54,16 +54,25 @@ const App = () => {
       "https://assets-global.website-files.com/5fb2b5d778be407a560568d8/60256ca15179d3117fd1f3ab_home-selector-recruiting.png",
     features: [
       {
+        icon: "✨",
         title: "No-code",
         description:
           "We are No-Code friendly. There is no coding required to get started. Launchman connects with Airtable and lets you generate a new page per row. It's just that easy!",
       },
       {
+        icon: "🎉",
         title: "Make Google happy",
         description:
           "We render all our pages server-side; when Google's robots come to index your site, the page does not have to wait for JS to be fetched. This helps you get ranked higher.",
       },
       {
+        icon: "😃",
+        title: "Rapid experimenting",
+        description:
+          "You don't have to wait hours to update your hard-coded landing pages. Figure out what resonates with your customers the most and update the copy in seconds",
+      },
+      {
+        icon: "🔌",
         title: "Rapid experimenting",
         description:
           "You don't have to wait hours to update your hard-coded landing pages. Figure out what resonates with your customers the most and update the copy in seconds",
@@ -149,10 +158,11 @@ const App = () => {
           </Center>
         </Container>
 
-        <Container maxW="container.xl" centerContent my={24}>
+        <Container maxW="container.md" centerContent py={28}>
           <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">
-            {features.map(({ title, description }) => (
+            {features.map(({ title, description, icon }) => (
               <Box p={4} rounded="md">
+                <Text fontSize="4xl">{icon}</Text>
                 <Text fontWeight={500}>{title}</Text>
                 <Text color="gray.500" mt={4}>
                   {description}
@@ -162,7 +172,7 @@ const App = () => {
           </SimpleGrid>
         </Container>
 
-        <Container my={24} maxW="container.md">
+        <Container py={28} maxW="container.md">
           <Box w="full">
             <VStack spacing={10} w="full">
               <Text fontWeight={500} fontSize="2xl" align="center">
@@ -173,7 +183,7 @@ const App = () => {
           </Box>
         </Container>
 
-        <Container my={24} maxW="container.lg">
+        <Container pt={28} pb={8} maxW="container.lg">
           <VStack spacing={6} backgroundColor="brand.400" rounded="xl" p={6}>
             <VStack spacing={4} maxW="md">
               <Text
