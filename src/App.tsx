@@ -195,7 +195,7 @@ const App = () => {
                 Subscribe to {name}
               </Text>
               <Text fontSize="lg" align="center" color="white">
-                {description}
+                {title}
               </Text>
             </VStack>
 
