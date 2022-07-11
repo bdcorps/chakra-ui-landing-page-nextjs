@@ -199,9 +199,21 @@ const App = () => {
             </ButtonGroup>
 
             <SimpleGrid columns={[1, null, 3]} spacing={10}>
-              <PricingBox pro={false} name="Starter" />
-              <PricingBox pro={true} name="Creator" />
-              <PricingBox pro={false} name="Enterprise" />
+              <PricingBox
+                pro={false}
+                name="Starter"
+                isBilledAnnually={isBilledAnnually}
+              />
+              <PricingBox
+                pro={true}
+                name="Creator"
+                isBilledAnnually={isBilledAnnually}
+              />
+              <PricingBox
+                pro={false}
+                name="Enterprise"
+                isBilledAnnually={isBilledAnnually}
+              />
             </SimpleGrid>
           </VStack>
         </Container>

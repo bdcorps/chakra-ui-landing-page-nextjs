@@ -14,11 +14,13 @@ import { FunctionComponent } from "react";
 interface PricingBoxProps {
   pro: boolean;
   name: string;
+  isBilledAnnually: boolean;
 }
 
 const PricingBox: FunctionComponent<PricingBoxProps> = ({
   pro,
   name,
+  isBilledAnnually,
 }: PricingBoxProps) => {
   return (
     <Box
@@ -34,9 +36,15 @@ const PricingBox: FunctionComponent<PricingBoxProps> = ({
           {name}
         </Text>
         <Box w="full">
-          <Text fontSize="3xl" fontWeight="medium">
-            $99
-          </Text>
+          {isBilledAnnually ? (
+            <Text fontSize="3xl" fontWeight="medium">
+              $89
+            </Text>
+          ) : (
+            <Text fontSize="3xl" fontWeight="medium">
+              $99
+            </Text>
+          )}
           <Text fontSize="sm">per month per site</Text>
         </Box>
 
