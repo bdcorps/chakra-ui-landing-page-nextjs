@@ -3,7 +3,7 @@ import {
   Container,
   Heading,
   Image,
-  SimpleGrid,
+  Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -21,11 +21,10 @@ const Feature: FunctionComponent<FeatureProps> = () => {
       backgroundColor="gray.100"
       my={10}
     >
-      <SimpleGrid
-        columns={[null, 1, 2]}
-        spacing={8}
+      <Stack
+        spacing={10}
         alignItems="center"
-        p={[6, 0, 0]}
+        direction={["column", null, "row"]}
       >
         <Box>
           <Image
@@ -44,7 +43,7 @@ const Feature: FunctionComponent<FeatureProps> = () => {
             zone.
           </Text>
         </VStack>
-      </SimpleGrid>
+      </Stack>
     </Container>
   );
 };

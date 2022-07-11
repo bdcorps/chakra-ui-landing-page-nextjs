@@ -22,8 +22,7 @@ import {
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import Feature from "./components/Feature";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import DrawerHome from "./components/HeaderResponsive";
 import PricingBox from "./components/PricingBox";
 
 // todo: seo
@@ -123,10 +122,11 @@ const App = () => {
           content="width=device-width, initial-scale=1.0"
         ></meta>
       </Helmet>
-      <Header
+      {/* <Header
         name="Launchman"
         logo="https://realfavicongenerator.net/homepage_icons/platforms/windows_2x.png"
-      />
+      /> */}
+      <DrawerHome />
       <Box bg="gray.50">
         <Container maxW="container.lg">
           <Box>
@@ -282,7 +282,6 @@ const App = () => {
           </Flex>
         </Container>
       </Box>
-      <Footer name="Launchman" logo="" />
     </>
   );
 };
