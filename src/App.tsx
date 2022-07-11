@@ -21,7 +21,12 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
+import Feature from "./components/Feature";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import PricingBox from "./components/PricingBox";
+
+// todo: seo
 
 function FAQ({ items }: any) {
   return (
@@ -118,16 +123,15 @@ const App = () => {
           content="width=device-width, initial-scale=1.0"
         ></meta>
       </Helmet>
-
+      <Header
+        name="Launchman"
+        logo="https://realfavicongenerator.net/homepage_icons/platforms/windows_2x.png"
+      />
       <Box bg="gray.50">
         <Container maxW="container.lg">
           <Box>
             <Center p={4} minHeight="70vh">
               <VStack>
-                <Text fontWeight={500} fontSize="lg" color="brand.500">
-                  {name}
-                </Text>
-
                 <Container maxW="container.md" textAlign="center">
                   <Heading size="2xl" mb={4} color="gray.700">
                     {title}
@@ -162,6 +166,10 @@ const App = () => {
             ></Image>
           </Center>
         </Container>
+
+        <Feature />
+        <Feature />
+        <Feature />
 
         <Container maxW="container.md" centerContent py={28}>
           <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">
@@ -274,6 +282,7 @@ const App = () => {
           </Flex>
         </Container>
       </Box>
+      <Footer name="Launchman" logo="" />
     </>
   );
 };
