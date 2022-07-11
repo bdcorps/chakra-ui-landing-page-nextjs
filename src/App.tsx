@@ -6,6 +6,7 @@ import {
   AccordionPanel,
   Box,
   Button,
+  ButtonGroup,
   Center,
   Container,
   Flex,
@@ -18,7 +19,9 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { Helmet } from "react-helmet";
+import PricingBox from "./components/PricingBox";
 
 function FAQ({ items }: any) {
   return (
@@ -102,6 +105,8 @@ const App = () => {
   const { name, title, description, image, features, faq, twitterHandle } =
     site;
 
+  const [isBilledAnnually, setIsBilledAnnually] = useState<boolean>(true);
+
   return (
     <>
       <Helmet>
@@ -170,6 +175,35 @@ const App = () => {
               </Box>
             ))}
           </SimpleGrid>
+        </Container>
+
+        <Container py={28} maxW="container.lg" w="full">
+          <VStack spacing={10} align="center">
+            <ButtonGroup isAttached>
+              <Button
+                onClick={() => {
+                  setIsBilledAnnually(true);
+                }}
+                colorScheme={isBilledAnnually ? "brand" : "gray"}
+              >
+                Annually (-10%)
+              </Button>
+              <Button
+                onClick={() => {
+                  setIsBilledAnnually(false);
+                }}
+                colorScheme={isBilledAnnually ? "gray" : "brand"}
+              >
+                Monthly
+              </Button>
+            </ButtonGroup>
+
+            <SimpleGrid columns={[1, null, 3]} spacing={10}>
+              <PricingBox pro={false} name="Starter" />
+              <PricingBox pro={true} name="Creator" />
+              <PricingBox pro={false} name="Enterprise" />
+            </SimpleGrid>
+          </VStack>
         </Container>
 
         <Container py={28} maxW="container.md">
