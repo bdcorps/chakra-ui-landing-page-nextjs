@@ -25,38 +25,24 @@ const PricingBox: FunctionComponent<PricingBoxProps> = ({
       boxShadow="sm"
       p={6}
       rounded="lg"
-      bg={pro ? "brand.400" : "white"}
+      bg={pro ? "white" : "white"}
       borderColor={pro ? "brand.500" : "gray.200"}
       borderWidth={2}
-      color={pro ? "white" : "current"}
     >
       <VStack spacing={3} align="flex-start">
-        <Text
-          color={pro ? "white" : "brand.500"}
-          fontWeight={600}
-          casing="uppercase"
-          fontSize="sm"
-        >
+        <Text fontWeight={600} casing="uppercase" fontSize="sm">
           {name}
         </Text>
         <Box w="full">
           <Text fontSize="3xl" fontWeight="medium">
             $99
           </Text>
-          <Text color={pro ? "white" : "gray.600"} fontSize="sm">
-            per month per site
-          </Text>
+          <Text fontSize="sm">per month per site</Text>
         </Box>
 
-        <Text color={pro ? "white" : "gray.600"}>
-          Unlock key features and higher usage limits
-        </Text>
+        <Text>Unlock key features and higher usage limits</Text>
         <VStack>
-          <Button
-            size="sm"
-            color={pro ? "brand.500" : "white"}
-            bgColor={pro ? "white" : "brand.500"}
-          >
+          <Button size="sm" colorScheme="brand">
             Free 14-day trial →
           </Button>
         </VStack>
