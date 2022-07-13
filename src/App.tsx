@@ -160,10 +160,32 @@ const App = () => {
 
         <Container maxW="container.2xl">
           <Center p={[0, 10]}>
-            <Image
+            {/* <video
+              src="https://ruttl.com/assets/video/index-hero.webm"
+              preload="none"
+              autoplay=""
+              muted=""
+              loop=""
+              poster="https://ruttl.com/assets/img/index-hero.jpg"
+              playsInline
+            ></video> */}
+
+            <video
+              playsInline
+              autoPlay
+              muted
+              poster="https://ruttl.com/assets/img/index-hero.jpg"
+            >
+              <source
+                src="https://ruttl.com/assets/video/index-hero.webm"
+                type="video/mp4"
+              />
+            </video>
+
+            {/* <Image
               src={image}
               alt="Sample product image from attio.com"
-            ></Image>
+            ></Image> */}
           </Center>
         </Container>
 

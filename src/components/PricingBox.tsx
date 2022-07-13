@@ -60,11 +60,7 @@ const PricingBox: FunctionComponent<PricingBoxProps> = ({
           <List spacing={3}>
             <ListItem>
               <HStack align="flex-start" spacing={1}>
-                <ListIcon
-                  as={CheckCircleIcon}
-                  color={pro ? "white" : "brand.500"}
-                  mt={1}
-                />
+                <ListIcon as={CheckCircleIcon} color="brand.500" mt={1} />
                 <Text>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit
                 </Text>
