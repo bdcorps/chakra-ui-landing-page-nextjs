@@ -18,6 +18,8 @@ import {
   Spacer,
   Text,
   VStack,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
@@ -160,16 +162,6 @@ const App = () => {
 
         <Container maxW="container.2xl">
           <Center p={[0, 10]}>
-            {/* <video
-              src="https://ruttl.com/assets/video/index-hero.webm"
-              preload="none"
-              autoplay=""
-              muted=""
-              loop=""
-              poster="https://ruttl.com/assets/img/index-hero.jpg"
-              playsInline
-            ></video> */}
-
             <video
               playsInline
               autoPlay
@@ -189,9 +181,31 @@ const App = () => {
           </Center>
         </Container>
 
-        <Feature />
-        <Feature />
-        <Feature />
+        <Box backgroundColor="brand.800" w="full">
+          <Container maxW="container.2xl" centerContent py={20}>
+            <Text fontSize="lg" color="white">
+              The best design-led companies use Kernel
+            </Text>
+
+            <Wrap spacing={20} mt={8} align="center">
+              <WrapItem>
+                <Image src="./logo-1.svg" />
+              </WrapItem>
+              <WrapItem>
+                <Image src="./logo-2.svg" />
+              </WrapItem>
+              <WrapItem>
+                <Image src="./logo-1.svg" />
+              </WrapItem>
+            </Wrap>
+          </Container>
+        </Box>
+
+        <Box backgroundColor="white" w="full">
+          <Feature />
+          <Feature />
+          <Feature />
+        </Box>
 
         <Container maxW="container.md" centerContent py={28}>
           <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">
