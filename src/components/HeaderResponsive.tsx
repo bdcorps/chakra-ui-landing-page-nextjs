@@ -13,22 +13,22 @@ import {
   Heading,
   IconButton,
   Image,
+  Link,
   LinkBox,
   LinkOverlay,
   Spacer,
   Stack,
-  Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import type { NextPage } from "next";
 import React from "react";
 
-const navlinks = [
-  { name: "Home", link: "#" },
-  { name: "Pricing", link: "#" },
+const navLinks = [
+  { name: "Home", link: "/" },
+  { name: "Features", link: "#features" },
+  { name: "Pricing", link: "#pricing" },
 ];
 
-const DesktopSidebarContents = () => {
+const DesktopSidebarContents = ({ name }: any) => {
   return (
     <Container maxW="container.lg">
       <Stack
@@ -38,13 +38,17 @@ const DesktopSidebarContents = () => {
         direction={["column", "row"]}
       >
         <Box display={{ base: "none", md: "flex" }}>
-          <Heading fontSize="xl">SaaSBase</Heading>
+          <Heading fontSize="xl">{name}</Heading>
         </Box>
         <Spacer />
         <Stack align="flex-start" spacing={8} direction={["column", "row"]}>
-          <Text fontWeight={500}>Features</Text>
-          <Text fontWeight={500}>Pricing</Text>
-          <Text fontWeight={500}>FAQ</Text>
+          {navLinks.map((navLink: any, i: number) => {
+            return (
+              <Link href={navLink.link} key={`navlink_${i}`}>
+                {navLink.name}
+              </Link>
+            );
+          })}
         </Stack>
         <Spacer />
         <LinkBox>
@@ -56,13 +60,13 @@ const DesktopSidebarContents = () => {
     </Container>
   );
 };
-const MobileSidebar = () => {
+const MobileSidebar = ({ name }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
       <Flex w="full" align="center">
-        <Heading fontSize="xl">SaaSBase</Heading>
+        <Heading fontSize="xl">{name}</Heading>
         <Spacer />
         <IconButton
           aria-label="Search database"
@@ -74,7 +78,7 @@ const MobileSidebar = () => {
           <DrawerOverlay />
           <DrawerContent bg="gray.50">
             <DrawerCloseButton />
-            <DrawerHeader>SaaSBase</DrawerHeader>
+            <DrawerHeader>{name}</DrawerHeader>
 
             <DrawerBody>
               <DesktopSidebarContents />
@@ -86,24 +90,32 @@ const MobileSidebar = () => {
   );
 };
 
-const Sidebar = ({ children }: any) => {
+interface SidebarProps {
+  name: string;
+}
+
+const Sidebar = ({ name }: SidebarProps) => {
   return (
     <chakra.header id="header">
       <Box display={{ base: "flex", md: "none" }} p={4}>
-        <MobileSidebar />
+        <MobileSidebar name={name} />
       </Box>
 
       <Box display={{ base: "none", md: "flex" }} bg="gray.50">
-        <DesktopSidebarContents />
+        <DesktopSidebarContents name={name} />
       </Box>
     </chakra.header>
   );
 };
 
-const DrawerHome: NextPage = ({ children }: any) => {
+interface DrawerHomeProps {
+  name: string;
+}
+
+const DrawerHome = ({ name }: DrawerHomeProps) => {
   return (
     <Box>
-      <Sidebar />
+      <Sidebar name={name} />
     </Box>
   );
 };

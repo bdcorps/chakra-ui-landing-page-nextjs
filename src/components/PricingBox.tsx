@@ -29,6 +29,7 @@ const PricingBox: FunctionComponent<PricingBoxProps> = ({
       rounded="lg"
       bg={pro ? "white" : "white"}
       borderColor={pro ? "brand.500" : "gray.200"}
+      backgroundColor={pro ? "brand.50" : "white"}
       borderWidth={2}
     >
       <VStack spacing={3} align="flex-start">

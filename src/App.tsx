@@ -23,6 +23,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
+import { CTA } from "./components/CTA";
 import Feature from "./components/Feature";
 import DrawerHome from "./components/HeaderResponsive";
 import PricingBox from "./components/PricingBox";
@@ -55,10 +56,10 @@ function FAQ({ items }: any) {
 
 const App = () => {
   const site = {
-    name: "Launchman",
-    title: "Your landing pages can bring in 10x more search traffic",
+    name: "Biller",
+    title: "You don't have to chase your clients around to get paid",
     description:
-      "Launchman lets you generate landing pages that target long-tailed keywords at scale. Pages are server-side rendered so Google ranks you better than your typical React SPA.",
+      "Freelancers use Biller to accept payments and send invoices to clients with a single click",
     image:
       "https://assets-global.website-files.com/5fb2b5d778be407a560568d8/60256ca15179d3117fd1f3ab_home-selector-recruiting.png",
     features: [
@@ -128,7 +129,7 @@ const App = () => {
         name="Launchman"
         logo="https://realfavicongenerator.net/homepage_icons/platforms/windows_2x.png"
       /> */}
-      <DrawerHome />
+      <DrawerHome name={site.name} />
       <Box bg="gray.50">
         <Container maxW="container.lg">
           <Box>
@@ -139,6 +140,7 @@ const App = () => {
                     {title}
                   </Heading>
                   <Text fontSize="xl" color="gray.500">
+                    {" "}
                     {description}
                   </Text>
                   <Button
@@ -159,7 +161,6 @@ const App = () => {
             </Center>
           </Box>
         </Container>
-
         <Container maxW="container.2xl">
           <Center p={[0, 10]}>
             <video
@@ -180,10 +181,9 @@ const App = () => {
             ></Image> */}
           </Center>
         </Container>
-
-        <Box backgroundColor="brand.800" w="full">
+        <Box w="full">
           <Container maxW="container.2xl" centerContent py={20}>
-            <Text fontSize="lg" color="white">
+            <Text color="gray.600" fontSize="lg">
               The best design-led companies use Kernel
             </Text>
 
@@ -200,13 +200,11 @@ const App = () => {
             </Wrap>
           </Container>
         </Box>
-
-        <Box backgroundColor="white" w="full">
+        <Box backgroundColor="white" w="full" id="features">
           <Feature />
-          <Feature />
+          <Feature reverse={true} />
           <Feature />
         </Box>
-
         <Container maxW="container.md" centerContent py={28}>
           <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">
             {features.map(({ title, description, icon }) => (
@@ -220,8 +218,7 @@ const App = () => {
             ))}
           </SimpleGrid>
         </Container>
-
-        <Container py={28} maxW="container.lg" w="full">
+        <Container py={28} maxW="container.lg" w="full" id="pricing">
           <VStack spacing={10} align="center">
             <ButtonGroup isAttached>
               <Button
@@ -261,7 +258,6 @@ const App = () => {
             </SimpleGrid>
           </VStack>
         </Container>
-
         <Container py={28} maxW="container.md">
           <Box w="full">
             <VStack spacing={10} w="full">
@@ -272,37 +268,14 @@ const App = () => {
             </VStack>
           </Box>
         </Container>
-
-        <Container pt={28} pb={8} maxW="container.lg">
-          <VStack spacing={6} backgroundColor="brand.400" rounded="xl" p={6}>
-            <VStack spacing={4} maxW="md">
-              <Text
-                fontWeight={600}
-                fontSize="3xl"
-                align="center"
-                color="white"
-              >
-                Subscribe to {name}
-              </Text>
-              <Text fontSize="lg" align="center" color="white">
-                {title}
-              </Text>
-            </VStack>
-
-            <Button
-              size="lg"
-              colorScheme="brand"
-              onClick={() => (window.location.href = "https://launchman.cc")}
-            >
-              I want this!
-            </Button>
-          </VStack>
-        </Container>
-
+        <CTA
+          heading={`Subscribe to ${site.name}`}
+          cta={{ name: "I want this!", link: "#" }}
+        />
         <Container maxW="container.lg">
           <Flex py={6}>
             <Box>
-              <Text>© 2022 Launchman</Text>
+              <Text>© 2022 {site.name}</Text>
               <Text>Made by Sukh</Text>
             </Box>
             <Spacer />

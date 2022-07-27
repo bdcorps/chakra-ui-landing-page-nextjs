@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Center,
   Container,
   Heading,
@@ -10,20 +11,25 @@ import {
 } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
 
-interface FeatureProps {}
+interface FeatureProps {
+  reverse?: boolean;
+}
 
-const Feature: FunctionComponent<FeatureProps> = () => {
+const Feature: FunctionComponent<FeatureProps> = ({
+  reverse,
+}: FeatureProps) => {
+  const rowDirection = reverse ? "row-reverse" : "row";
   return (
     <Center w="full" minH="100vh">
       <Container maxW="container.xl" rounded="lg">
         <Stack
           spacing={16}
           alignItems="center"
-          direction={["column", null, "row"]}
+          direction={["column", null, rowDirection]}
           w="full"
           h="full"
         >
-          <Box backgroundColor="#5000FF" rounded="md">
+          <Box bgGradient="linear(to-b, gray.100, gray.50)" rounded="md">
             <Image src="https://www.plain.com/_next/image/?url=%2Fimages%2Ffeature-grid-queues.png&w=3840&q=100" />
           </Box>
 
@@ -36,6 +42,9 @@ const Feature: FunctionComponent<FeatureProps> = () => {
               needs a follow up. Plain also works out who to help next, so you
               can stay in the zone.
             </Text>
+            <Button colorScheme="brand" variant="link">
+              Learn more →
+            </Button>
           </VStack>
         </Stack>
       </Container>
