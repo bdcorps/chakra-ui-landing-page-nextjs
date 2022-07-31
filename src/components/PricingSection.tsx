@@ -2,14 +2,16 @@ import { CheckCircleIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
+  ButtonGroup,
   HStack,
   List,
   ListIcon,
   ListItem,
+  SimpleGrid,
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 
 interface PricingBoxProps {
   pro: boolean;
@@ -74,4 +76,50 @@ const PricingBox: FunctionComponent<PricingBoxProps> = ({
   );
 };
 
-export default PricingBox;
+interface PricingSectionProps {}
+
+const PricingSection: FunctionComponent<PricingSectionProps> = () => {
+  const [isBilledAnnually, setIsBilledAnnually] = useState<boolean>(true);
+  return (
+    <VStack spacing={10} align="center">
+      <ButtonGroup isAttached>
+        <Button
+          onClick={() => {
+            setIsBilledAnnually(true);
+          }}
+          colorScheme={isBilledAnnually ? "brand" : "gray"}
+        >
+          Annually (-10%)
+        </Button>
+        <Button
+          onClick={() => {
+            setIsBilledAnnually(false);
+          }}
+          colorScheme={isBilledAnnually ? "gray" : "brand"}
+        >
+          Monthly
+        </Button>
+      </ButtonGroup>
+
+      <SimpleGrid columns={[1, null, 3]} spacing={10}>
+        <PricingBox
+          pro={false}
+          name="Starter"
+          isBilledAnnually={isBilledAnnually}
+        />
+        <PricingBox
+          pro={true}
+          name="Creator"
+          isBilledAnnually={isBilledAnnually}
+        />
+        <PricingBox
+          pro={false}
+          name="Enterprise"
+          isBilledAnnually={isBilledAnnually}
+        />
+      </SimpleGrid>
+    </VStack>
+  );
+};
+
+export default PricingSection;

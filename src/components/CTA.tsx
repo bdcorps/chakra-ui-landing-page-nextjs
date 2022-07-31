@@ -15,7 +15,7 @@ export const CTA: FunctionComponent<CTAProps> = ({
     <Container maxW="container.lg" py={16}>
       <VStack
         spacing={6}
-        backgroundColor="purple.600"
+        backgroundColor="brand.500"
         rounded="xl"
         p={6}
         backgroundImage="https://uploads-ssl.webflow.com/60c29c0c0d66236222bfa9b4/60c29c0d0d66230460bfa9e2_Pattern%20Shape.svg"

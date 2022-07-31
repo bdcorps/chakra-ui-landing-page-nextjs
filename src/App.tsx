@@ -6,7 +6,6 @@ import {
   AccordionPanel,
   Box,
   Button,
-  ButtonGroup,
   Center,
   Container,
   Flex,
@@ -21,12 +20,11 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
-import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { CTA } from "./components/CTA";
 import Feature from "./components/Feature";
 import DrawerHome from "./components/HeaderResponsive";
-import PricingBox from "./components/PricingBox";
+import PricingSection from "./components/PricingSection";
 
 // todo: seo
 
@@ -61,7 +59,7 @@ const App = () => {
     description:
       "Freelancers use Biller to accept payments and send invoices to clients with a single click",
     image:
-      "https://assets-global.website-files.com/5fb2b5d778be407a560568d8/60256ca15179d3117fd1f3ab_home-selector-recruiting.png",
+      "https://launchman-space.nyc3.digitaloceanspaces.com/biller-hero-2.png",
     features: [
       {
         icon: "✨",
@@ -112,8 +110,6 @@ const App = () => {
   const { name, title, description, image, features, faq, twitterHandle } =
     site;
 
-  const [isBilledAnnually, setIsBilledAnnually] = useState<boolean>(true);
-
   return (
     <>
       <Helmet>
@@ -140,7 +136,6 @@ const App = () => {
                     {title}
                   </Heading>
                   <Text fontSize="xl" color="gray.500">
-                    {" "}
                     {description}
                   </Text>
                   <Button
@@ -161,21 +156,17 @@ const App = () => {
             </Center>
           </Box>
         </Container>
-        <Container maxW="container.2xl">
+        <Container maxW="container.xl">
           <Center p={[0, 10]}>
-            <video
-              playsInline
-              autoPlay
-              muted
-              poster="https://ruttl.com/assets/img/index-hero.jpg"
-            >
+            <video playsInline autoPlay muted poster={image} loop>
               <source
-                src="https://ruttl.com/assets/video/index-hero.webm"
+                src="https://launchman-space.nyc3.digitaloceanspaces.com/biller-hero-2.webm"
                 type="video/mp4"
               />
             </video>
 
             {/* <Image
+              rounded="md"
               src={image}
               alt="Sample product image from attio.com"
             ></Image> */}
@@ -219,44 +210,7 @@ const App = () => {
           </SimpleGrid>
         </Container>
         <Container py={28} maxW="container.lg" w="full" id="pricing">
-          <VStack spacing={10} align="center">
-            <ButtonGroup isAttached>
-              <Button
-                onClick={() => {
-                  setIsBilledAnnually(true);
-                }}
-                colorScheme={isBilledAnnually ? "brand" : "gray"}
-              >
-                Annually (-10%)
-              </Button>
-              <Button
-                onClick={() => {
-                  setIsBilledAnnually(false);
-                }}
-                colorScheme={isBilledAnnually ? "gray" : "brand"}
-              >
-                Monthly
-              </Button>
-            </ButtonGroup>
-
-            <SimpleGrid columns={[1, null, 3]} spacing={10}>
-              <PricingBox
-                pro={false}
-                name="Starter"
-                isBilledAnnually={isBilledAnnually}
-              />
-              <PricingBox
-                pro={true}
-                name="Creator"
-                isBilledAnnually={isBilledAnnually}
-              />
-              <PricingBox
-                pro={false}
-                name="Enterprise"
-                isBilledAnnually={isBilledAnnually}
-              />
-            </SimpleGrid>
-          </VStack>
+          <PricingSection />
         </Container>
         <Container py={28} maxW="container.md">
           <Box w="full">
