@@ -25,7 +25,7 @@ const Feature: FunctionComponent<FeatureProps> = ({
 }: FeatureProps) => {
   const rowDirection = reverse ? "row-reverse" : "row";
   return (
-    <Center w="full" minH="100vh">
+    <Center w="full" minH={["64vh", "100vh"]}>
       <Container maxW="container.xl" rounded="lg">
         <Stack
           spacing={16}
@@ -38,16 +38,20 @@ const Feature: FunctionComponent<FeatureProps> = ({
             <Image src={image} rounded="lg" />
           </Box>
 
-          <VStack align="flex-start" maxW={500} spacing={4}>
+          <VStack maxW={500} spacing={4} align={["center", "flex-start"]}>
             <Box>
-              <Text fontSize="3xl" fontWeight={600}>
+              <Text fontSize="3xl" fontWeight={600} align={["center", "left"]}>
                 {title}
               </Text>
             </Box>
-            <Text fontSize="md" color="gray.500">
+            <Text fontSize="md" color="gray.500" textAlign={["center", "left"]}>
               {description}
             </Text>
-            <Button colorScheme="brand" variant="link">
+            <Button
+              colorScheme="brand"
+              variant="link"
+              textAlign={["center", "left"]}
+            >
               Learn more →
             </Button>
           </VStack>

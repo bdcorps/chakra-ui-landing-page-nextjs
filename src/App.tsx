@@ -201,12 +201,18 @@ const App = () => {
           </Center>
         </Container>
         <Box w="full">
-          <Container maxW="container.2xl" centerContent py={20}>
+          <Container maxW="container.2xl" centerContent py={[20]}>
             <Text color="gray.600" fontSize="lg">
               Used by teams worldwide
             </Text>
 
-            <Wrap spacing={20} mt={8} align="center">
+            <Wrap
+              spacing={[10, 20]}
+              mt={8}
+              align="center"
+              justify="center"
+              w="full"
+            >
               <WrapItem>
                 <Image src="./logo-1.svg" />
               </WrapItem>
@@ -216,6 +222,9 @@ const App = () => {
               <WrapItem>
                 <Image src="./logo-1.svg" />
               </WrapItem>
+              <WrapItem>
+                <Image src="./logo-2.svg" />
+              </WrapItem>
             </Wrap>
           </Container>
         </Box>
@@ -223,6 +232,7 @@ const App = () => {
           {features.map(({ title, description, image }: any, i: number) => {
             return (
               <Feature
+                key={`feature_${i}`}
                 title={title}
                 description={description}
                 image={image}
@@ -231,10 +241,10 @@ const App = () => {
             );
           })}
         </Box>
-        <Container maxW="container.md" centerContent py={28}>
+        <Container maxW="container.md" centerContent py={[8, 28]}>
           <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">
-            {highlights.map(({ title, description, icon }) => (
-              <Box p={4} rounded="md">
+            {highlights.map(({ title, description, icon }, i: number) => (
+              <Box p={4} rounded="md" key={`highlight_${i}`}>
                 <Text fontSize="4xl">{icon}</Text>
                 <Text fontWeight={500}>{title}</Text>
                 <Text color="gray.500" mt={4}>
@@ -258,7 +268,7 @@ const App = () => {
           </Box>
         </Container>
         <CTA
-          heading={`Subscribe to ${site.name}`}
+          heading={`Get started with ${site.name}  today!`}
           cta={{ name: "I want this!", link: "#" }}
         />
         <Container maxW="container.lg">

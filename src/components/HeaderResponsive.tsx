@@ -2,7 +2,6 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   chakra,
-  Container,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -30,7 +29,7 @@ const navLinks = [
 
 const DesktopSidebarContents = ({ name }: any) => {
   return (
-    <Container maxW="container.lg">
+    <Box maxW="container.lg">
       <Stack
         justify="space-between"
         p={[0, 4]}
@@ -41,10 +40,15 @@ const DesktopSidebarContents = ({ name }: any) => {
           <Heading fontSize="xl">{name}</Heading>
         </Box>
         <Spacer />
-        <Stack align="flex-start" spacing={8} direction={["column", "row"]}>
+        <Stack align="flex-start" spacing={4} direction={["column", "row"]}>
           {navLinks.map((navLink: any, i: number) => {
             return (
-              <Link href={navLink.link} key={`navlink_${i}`}>
+              <Link
+                href={navLink.link}
+                key={`navlink_${i}`}
+                fontWeight={500}
+                variant="ghost"
+              >
                 {navLink.name}
               </Link>
             );
@@ -57,7 +61,7 @@ const DesktopSidebarContents = ({ name }: any) => {
           </LinkOverlay>
         </LinkBox>
       </Stack>
-    </Container>
+    </Box>
   );
 };
 const MobileSidebar = ({ name }: any) => {
@@ -121,5 +125,3 @@ const DrawerHome = ({ name }: DrawerHomeProps) => {
 };
 
 export default DrawerHome;
-
-// https://levelup.gitconnected.com/create-a-responsive-navigation-bar-using-chakraui-6489473e933
