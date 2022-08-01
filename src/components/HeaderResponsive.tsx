@@ -2,6 +2,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   chakra,
+  Container,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -29,7 +30,7 @@ const navLinks = [
 
 const DesktopSidebarContents = ({ name }: any) => {
   return (
-    <Box maxW="container.lg">
+    <Container maxW={["full", "container.lg"]} p={0}>
       <Stack
         justify="space-between"
         p={[0, 4]}
@@ -61,7 +62,7 @@ const DesktopSidebarContents = ({ name }: any) => {
           </LinkOverlay>
         </LinkBox>
       </Stack>
-    </Box>
+    </Container>
   );
 };
 const MobileSidebar = ({ name }: any) => {
