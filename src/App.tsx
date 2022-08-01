@@ -60,6 +60,8 @@ const App = () => {
       "Freelancers use Biller to accept payments and send invoices to clients with a single click",
     image:
       "https://launchman-space.nyc3.digitaloceanspaces.com/biller-hero-2.png",
+    video:
+      "https://launchman-space.nyc3.digitaloceanspaces.com/biller-hero-2.webm",
     features: [
       {
         title: "Detailed Analytics",
@@ -132,6 +134,7 @@ const App = () => {
     title,
     description,
     image,
+    video,
     features,
     highlights,
     faq,
@@ -187,10 +190,7 @@ const App = () => {
         <Container maxW="container.xl">
           <Center p={[0, 10]}>
             <video playsInline autoPlay muted poster={image} loop>
-              <source
-                src="https://launchman-space.nyc3.digitaloceanspaces.com/biller-hero-2.webm"
-                type="video/mp4"
-              />
+              <source src={video} type="video/mp4" />
             </video>
 
             {/* <Image

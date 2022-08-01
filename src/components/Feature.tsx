@@ -11,7 +11,6 @@ import {
 import { FunctionComponent } from "react";
 
 interface FeatureProps {
-  index: number;
   title: string;
   description: string;
   image: string;
@@ -19,7 +18,6 @@ interface FeatureProps {
 }
 
 const Feature: FunctionComponent<FeatureProps> = ({
-  index,
   title,
   description,
   image,
