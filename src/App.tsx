@@ -62,6 +62,26 @@ const App = () => {
       "https://launchman-space.nyc3.digitaloceanspaces.com/biller-hero-2.png",
     features: [
       {
+        title: "Detailed Analytics",
+        description:
+          "No more spending hours writing formulas in Excel to figure out how much you're making. We surface important metrics to keep your business going strong.",
+        image: "./feature1.png",
+      },
+      {
+        title: "Track your clients",
+        description:
+          "Know when and how your projects are going so you can stay on top of delivery dates.",
+        image: "./feature2.png",
+      },
+      {
+        title: "Manage projects",
+        description:
+          "You don't have to hunt your email inbox to find that one conversation. Every task, project, and client information is just a click away.",
+        image: "./feature3.png",
+      },
+    ],
+    highlights: [
+      {
         icon: "✨",
         title: "No-code",
         description:
@@ -88,27 +108,35 @@ const App = () => {
     ],
     faq: [
       {
-        q: "Can I bring my own design?",
-        a: "We can chat about the page design that you would want to use.",
+        q: "How many clients can I bring on?",
+        a: "You can bring on 3 clients with the Free plan. Upgrade to Pro for additional seats.",
       },
       {
-        q: "I have slightly different needs, how can I contact you?",
-        a: "Email me at sukh@saasbase.dev",
+        q: "Can I connect it to my CRM?",
+        a: "Yes! We support Notion and PipeDrive currently.",
       },
       {
-        q: "Can I bring my own design?",
-        a: "We can chat about the page design that you would want to use.",
+        q: "Do you support international payments?",
+        a: "Yes - payments can be made from and to any country.",
       },
       {
-        q: "I have slightly different needs, how can I contact you?",
+        q: "Who can I connect to for support?",
         a: "Email me at sukh@saasbase.dev",
       },
     ],
     twitterHandle: "thisissukh_",
   };
 
-  const { name, title, description, image, features, faq, twitterHandle } =
-    site;
+  const {
+    name,
+    title,
+    description,
+    image,
+    features,
+    highlights,
+    faq,
+    twitterHandle,
+  } = site;
 
   return (
     <>
@@ -175,7 +203,7 @@ const App = () => {
         <Box w="full">
           <Container maxW="container.2xl" centerContent py={20}>
             <Text color="gray.600" fontSize="lg">
-              The best design-led companies use Kernel
+              Used by teams worldwide
             </Text>
 
             <Wrap spacing={20} mt={8} align="center">
@@ -192,13 +220,20 @@ const App = () => {
           </Container>
         </Box>
         <Box backgroundColor="white" w="full" id="features">
-          <Feature />
-          <Feature reverse={true} />
-          <Feature />
+          {features.map(({ title, description, image }: any, i: number) => {
+            return (
+              <Feature
+                title={title}
+                description={description}
+                image={image}
+                reverse={i % 2 === 1}
+              />
+            );
+          })}
         </Box>
         <Container maxW="container.md" centerContent py={28}>
           <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">
-            {features.map(({ title, description, icon }) => (
+            {highlights.map(({ title, description, icon }) => (
               <Box p={4} rounded="md">
                 <Text fontSize="4xl">{icon}</Text>
                 <Text fontWeight={500}>{title}</Text>
