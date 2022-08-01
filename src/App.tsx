@@ -152,10 +152,7 @@ const App = () => {
           content="width=device-width, initial-scale=1.0"
         ></meta>
       </Helmet>
-      {/* <Header
-        name="Launchman"
-        logo="https://realfavicongenerator.net/homepage_icons/platforms/windows_2x.png"
-      /> */}
+
       <DrawerHome name={site.name} />
       <Box bg="gray.50">
         <Container maxW="container.lg">
