@@ -7,30 +7,30 @@ import {
   Stack,
   Text,
   VStack,
-} from "@chakra-ui/react";
-import { FunctionComponent } from "react";
+} from '@chakra-ui/react'
+import { FunctionComponent } from 'react'
 
 interface FeatureProps {
-  title: string;
-  description: string;
-  image: string;
-  reverse?: boolean;
+  title: string
+  description: string
+  image: string
+  reverse?: boolean
 }
 
-const Feature: FunctionComponent<FeatureProps> = ({
+export const Feature: FunctionComponent<FeatureProps> = ({
   title,
   description,
   image,
   reverse,
 }: FeatureProps) => {
-  const rowDirection = reverse ? "row-reverse" : "row";
+  const rowDirection = reverse ? 'row-reverse' : 'row'
   return (
-    <Center w="full" minH={["64vh", "100vh"]}>
+    <Center w="full" minH={[null, '90vh']}>
       <Container maxW="container.xl" rounded="lg">
         <Stack
-          spacing={16}
+          spacing={[4, 16]}
           alignItems="center"
-          direction={["column", null, rowDirection]}
+          direction={['column', null, rowDirection]}
           w="full"
           h="full"
         >
@@ -38,19 +38,19 @@ const Feature: FunctionComponent<FeatureProps> = ({
             <Image src={image} rounded="lg" />
           </Box>
 
-          <VStack maxW={500} spacing={4} align={["center", "flex-start"]}>
+          <VStack maxW={500} spacing={4} align={['center', 'flex-start']}>
             <Box>
-              <Text fontSize="3xl" fontWeight={600} align={["center", "left"]}>
+              <Text fontSize="3xl" fontWeight={600} align={['center', 'left']}>
                 {title}
               </Text>
             </Box>
-            <Text fontSize="md" color="gray.500" textAlign={["center", "left"]}>
+            <Text fontSize="md" color="gray.500" textAlign={['center', 'left']}>
               {description}
             </Text>
             <Button
               colorScheme="brand"
               variant="link"
-              textAlign={["center", "left"]}
+              textAlign={['center', 'left']}
             >
               Learn more →
             </Button>
@@ -58,7 +58,5 @@ const Feature: FunctionComponent<FeatureProps> = ({
         </Stack>
       </Container>
     </Center>
-  );
-};
-
-export default Feature;
+  )
+}

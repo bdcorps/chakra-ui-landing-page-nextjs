@@ -1,4 +1,4 @@
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon } from '@chakra-ui/icons'
 import {
   Box,
   chakra,
@@ -19,29 +19,33 @@ import {
   Spacer,
   Stack,
   useDisclosure,
-} from "@chakra-ui/react";
-import React from "react";
+} from '@chakra-ui/react'
+import React from 'react'
 
 const navLinks = [
-  { name: "Home", link: "/" },
-  { name: "Features", link: "#features" },
-  { name: "Pricing", link: "#pricing" },
-];
+  { name: 'Home', link: '/' },
+  { name: 'Features', link: '#features' },
+  { name: 'Pricing', link: '#pricing' },
+]
 
 const DesktopSidebarContents = ({ name }: any) => {
   return (
-    <Container maxW={["full", "container.lg"]} p={0}>
+    <Container maxW={['full', 'container.lg']} p={0}>
       <Stack
         justify="space-between"
         p={[0, 4]}
         w="full"
-        direction={["column", "row"]}
+        direction={['column', 'row']}
       >
-        <Box display={{ base: "none", md: "flex" }}>
+        <Box display={{ base: 'none', md: 'flex' }}>
           <Heading fontSize="xl">{name}</Heading>
         </Box>
         <Spacer />
-        <Stack align="flex-start" spacing={4} direction={["column", "row"]}>
+        <Stack
+          align="flex-start"
+          spacing={[4, 10]}
+          direction={['column', 'row']}
+        >
           {navLinks.map((navLink: any, i: number) => {
             return (
               <Link
@@ -52,7 +56,7 @@ const DesktopSidebarContents = ({ name }: any) => {
               >
                 {navLink.name}
               </Link>
-            );
+            )
           })}
         </Stack>
         <Spacer />
@@ -63,10 +67,10 @@ const DesktopSidebarContents = ({ name }: any) => {
         </LinkBox>
       </Stack>
     </Container>
-  );
-};
+  )
+}
 const MobileSidebar = ({ name }: any) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <>
@@ -75,7 +79,6 @@ const MobileSidebar = ({ name }: any) => {
         <Spacer />
         <IconButton
           aria-label="Search database"
-          variant="ghost"
           icon={<HamburgerIcon />}
           onClick={onOpen}
         />
@@ -92,37 +95,37 @@ const MobileSidebar = ({ name }: any) => {
         </Drawer>
       </Flex>
     </>
-  );
-};
+  )
+}
 
 interface SidebarProps {
-  name: string;
+  name: string
 }
 
 const Sidebar = ({ name }: SidebarProps) => {
   return (
     <chakra.header id="header">
-      <Box display={{ base: "flex", md: "none" }} p={4}>
+      <Box display={{ base: 'flex', md: 'none' }} p={4}>
         <MobileSidebar name={name} />
       </Box>
 
-      <Box display={{ base: "none", md: "flex" }} bg="gray.50">
+      <Box display={{ base: 'none', md: 'flex' }} bg="gray.50">
         <DesktopSidebarContents name={name} />
       </Box>
     </chakra.header>
-  );
-};
+  )
+}
 
 interface DrawerHomeProps {
-  name: string;
+  name: string
 }
 
 const DrawerHome = ({ name }: DrawerHomeProps) => {
   return (
-    <Box>
+    <Box w="full">
       <Sidebar name={name} />
     </Box>
-  );
-};
+  )
+}
 
-export default DrawerHome;
+export default DrawerHome

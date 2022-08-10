@@ -1,70 +1,36 @@
-<div align="center">
-  <h1>SaaS Landing page boilerplate with Chakra UI</h1>
-</div>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-<div align="center">
-This is an open source template for creating a SaaS landing page
-</div>
- <br />
-<p align="center">
-  <a href="https://launchman.cc"><img src="https://pbs.twimg.com/media/FVVcQd1WUAA2YOx?format=jpg&name=4096x4096" alt="Landing page preview"></a>
-</p>
+## Getting Started
 
-<p align="center">
-    <br />
-    <a href="https://chakra-ui-landing-page.vercel.app"><strong>View demo »</strong></a>
-    <br />
-  <br/>
-  </p>
+First, run the development server:
 
-
-  <img alt="MIT License" src="https://img.shields.io/github/license/bdcorps/chakra-ui-landing-page"/>
-  
-### Features
-
-Developer experience first:
-
-- 🔥 Vite
-- 🎨 Chakra UI
-- 🎉 Type checking [TypeScript](https://www.typescriptlang.org)
-
-### Requirements
-
-- Node.js and npm
-
-### Getting started
-
-Clone the repo to your machine and run:
-
-```
-npm install
+```bash
 npm run dev
+# or
+yarn dev
 ```
 
-Open up http://localhost:3000 in your browser to see it running.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Deploy to production
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-Build for production by running:
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-```
-$ npm run build
-$ npm run start
-```
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-### Deploy to Vercel
+## Learn More
 
-Vercel has support for deploying Vite.js projects. Here's how you can get it running:
+To learn more about Next.js, take a look at the following resources:
 
-1. Create a new project and connect the forked repo of this project
-2. Choose `Vite` for Framework Preset
-3. That's it. Your app should now be deployed with Vercel
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### License
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-Licensed under the MIT License, Copyright © 2022
+## Deploy on Vercel
 
-Made with ♥ by [Sukh](https://launchman.cc)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/thisissukh_.svg?style=social&label=Follow%20%40Sukh)](https://twitter.com/thisissukh_)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+# chakra-ui-blog

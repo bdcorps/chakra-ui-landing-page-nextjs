@@ -1,4 +1,4 @@
-import { CheckCircleIcon } from "@chakra-ui/icons";
+import { CheckCircleIcon } from '@chakra-ui/icons'
 import {
   Box,
   Button,
@@ -10,16 +10,16 @@ import {
   SimpleGrid,
   Text,
   VStack,
-} from "@chakra-ui/react";
-import { FunctionComponent, useState } from "react";
+} from '@chakra-ui/react'
+import { FunctionComponent, useState } from 'react'
 
 interface PricingBoxProps {
-  pro: boolean;
-  name: string;
-  isBilledAnnually: boolean;
+  pro: boolean
+  name: string
+  isBilledAnnually: boolean
 }
 
-const PricingBox: FunctionComponent<PricingBoxProps> = ({
+export const PricingBox: FunctionComponent<PricingBoxProps> = ({
   pro,
   name,
   isBilledAnnually,
@@ -29,9 +29,9 @@ const PricingBox: FunctionComponent<PricingBoxProps> = ({
       boxShadow="sm"
       p={6}
       rounded="lg"
-      bg={pro ? "white" : "white"}
-      borderColor={pro ? "brand.500" : "gray.200"}
-      backgroundColor={pro ? "brand.50" : "white"}
+      bg={pro ? 'white' : 'white'}
+      borderColor={pro ? 'brand.500' : 'gray.200'}
+      backgroundColor={pro ? 'brand.50' : 'white'}
       borderWidth={2}
     >
       <VStack spacing={3} align="flex-start">
@@ -73,29 +73,29 @@ const PricingBox: FunctionComponent<PricingBoxProps> = ({
         </VStack>
       </VStack>
     </Box>
-  );
-};
+  )
+}
 
 interface PricingSectionProps {}
 
-const PricingSection: FunctionComponent<PricingSectionProps> = () => {
-  const [isBilledAnnually, setIsBilledAnnually] = useState<boolean>(true);
+export const PricingSection: FunctionComponent<PricingSectionProps> = () => {
+  const [isBilledAnnually, setIsBilledAnnually] = useState<boolean>(true)
   return (
     <VStack spacing={10} align="center">
       <ButtonGroup isAttached>
         <Button
           onClick={() => {
-            setIsBilledAnnually(true);
+            setIsBilledAnnually(true)
           }}
-          colorScheme={isBilledAnnually ? "brand" : "gray"}
+          colorScheme={isBilledAnnually ? 'brand' : 'gray'}
         >
           Annually (-10%)
         </Button>
         <Button
           onClick={() => {
-            setIsBilledAnnually(false);
+            setIsBilledAnnually(false)
           }}
-          colorScheme={isBilledAnnually ? "gray" : "brand"}
+          colorScheme={isBilledAnnually ? 'gray' : 'brand'}
         >
           Monthly
         </Button>
@@ -119,7 +119,5 @@ const PricingSection: FunctionComponent<PricingSectionProps> = () => {
         />
       </SimpleGrid>
     </VStack>
-  );
-};
-
-export default PricingSection;
+  )
+}
