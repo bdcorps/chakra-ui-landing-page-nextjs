@@ -3,12 +3,13 @@ import {
   Button,
   Center,
   Container,
-  Image,
   Stack,
   Text,
   VStack,
 } from '@chakra-ui/react'
 import { FunctionComponent } from 'react'
+
+import Image from 'next/image'
 
 interface FeatureProps {
   title: string
@@ -34,8 +35,13 @@ export const Feature: FunctionComponent<FeatureProps> = ({
           w="full"
           h="full"
         >
-          <Box>
-            <Image src={image} rounded="lg" alt={`Feature: ${title}`} />
+          <Box rounded="lg">
+            <Image
+              src={image}
+              width={684}
+              height={433}
+              alt={`Feature: ${title}`}
+            />
           </Box>
 
           <VStack maxW={500} spacing={4} align={['center', 'flex-start']}>
