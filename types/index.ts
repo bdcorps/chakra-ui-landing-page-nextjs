@@ -1,19 +1,28 @@
 export interface Site {
-  email: string
-  subdomain: string
   name: string
+  title: string
   description: string
-  posts: Post[]
+  image?: string
+  video?: string
+  features: Feature[]
+  highlights: Highlight[]
+  faqs: FAQ[]
+  twitterHandle: string
 }
 
-export interface Post {
-  id: number
+export interface Feature {
   title: string
   description: string
   image: string
-  link: string
 }
 
-export interface Data {
-  name: string
+export interface Highlight {
+  icon: string
+  title: string
+  description: string
+}
+
+export interface FAQ {
+  q: string
+  a: string
 }

@@ -1,9 +1,4 @@
 import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
   Box,
   Button,
   Center,
@@ -21,38 +16,14 @@ import {
   WrapItem,
 } from '@chakra-ui/react'
 import { CTA } from '../components/CTA'
+import { FAQSection } from '../components/FAQSection'
 import { Feature } from '../components/Feature'
 import Layout from '../components/Layout'
 import { PricingSection } from '../components/PricingSection'
-
-// todo: seo
-
-function FAQ({ items }: any) {
-  return (
-    <Box borderRadius="lg" w="full" p={4}>
-      <Accordion>
-        {items.map((item: any, i: number) => {
-          return (
-            <AccordionItem key={`faq_${i}`}>
-              <h2>
-                <AccordionButton>
-                  <Box flex="1" textAlign="left">
-                    {item.q}
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel pb={4}>{item.a}</AccordionPanel>
-            </AccordionItem>
-          )
-        })}
-      </Accordion>
-    </Box>
-  )
-}
+import { Site } from '../types'
 
 const SiteIndex = () => {
-  const site = {
+  const site: Site = {
     name: 'Biller',
     title: "You don't have to chase your clients around to get paid",
     description:
@@ -107,7 +78,7 @@ const SiteIndex = () => {
           "You don't have to wait hours to update your hard-coded landing pages. Figure out what resonates with your customers the most and update the copy in seconds",
       },
     ],
-    faq: [
+    faqs: [
       {
         q: 'How many clients can I bring on?',
         a: 'You can bring on 3 clients with the Free plan. Upgrade to Pro for additional seats.',
@@ -136,7 +107,7 @@ const SiteIndex = () => {
     video,
     features,
     highlights,
-    faq,
+    faqs,
     twitterHandle,
   } = site
 
@@ -147,19 +118,13 @@ const SiteIndex = () => {
           <Center p={4} minHeight="70vh">
             <VStack>
               <Container maxW="container.md" textAlign="center">
-                <Heading size="2xl" mb={4} color="gray.700">
+                <Heading as="h1" size="2xl" mb={4} color="gray.700">
                   {title}
                 </Heading>
-                <Text fontSize="xl" color="gray.500">
+                <Text as="h2" fontSize="xl" color="gray.500">
                   {description}
                 </Text>
-                <Button
-                  mt={8}
-                  colorScheme="brand"
-                  onClick={() => {
-                    window.open('https://launchman.cc', '_blank')
-                  }}
-                >
+                <Button mt={8} colorScheme="brand">
                   I need this for $10/month →
                 </Button>
 
@@ -177,7 +142,10 @@ const SiteIndex = () => {
             <source src={video} type="video/mp4" />
           </video>
 
-          {/* <Image
+          {/*
+          if you want to show an image instead, uncomment this
+
+          <Image
               rounded="md"
               src={image}
               alt="Sample product image from attio.com"
@@ -198,16 +166,16 @@ const SiteIndex = () => {
             w="full"
           >
             <WrapItem>
-              <Image src="./logo-1.svg" />
+              <Image src="./logo-1.svg" alt="Microsoft logo" />
             </WrapItem>
             <WrapItem>
-              <Image src="./logo-2.svg" />
+              <Image src="./logo-2.svg" alt="Adobe logo" />
             </WrapItem>
             <WrapItem>
-              <Image src="./logo-1.svg" />
+              <Image src="./logo-1.svg" alt="Microsoft logo" />
             </WrapItem>
             <WrapItem>
-              <Image src="./logo-2.svg" />
+              <Image src="./logo-2.svg" alt="Adobe logo" />
             </WrapItem>
           </Wrap>
         </Container>
@@ -253,7 +221,7 @@ const SiteIndex = () => {
             <Text fontWeight={500} fontSize="2xl" align="center">
               Frequently asked questions
             </Text>
-            <FAQ items={faq} />
+            <FAQSection items={faqs} />
           </VStack>
         </Box>
       </Container>
@@ -274,7 +242,7 @@ const SiteIndex = () => {
               href={`https://twitter.com/${twitterHandle}`}
               isExternal
             >
-              <Image src="./twitter.svg"></Image>
+              <Image src="./twitter.svg" alt="Twitter logo"></Image>
             </LinkOverlay>
           </LinkBox>
         </Flex>
