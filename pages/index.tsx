@@ -20,10 +20,10 @@ import { FAQSection } from '../components/FAQSection'
 import { Feature } from '../components/Feature'
 import Layout from '../components/Layout'
 import { PricingSection } from '../components/PricingSection'
-import { Site } from '../types'
+import { FeatureType, SiteType } from '../types'
 
 const SiteIndex = () => {
-  const site: Site = {
+  const site: SiteType = {
     name: 'Biller',
     title: "You don't have to chase your clients around to get paid",
     description:
@@ -187,17 +187,19 @@ const SiteIndex = () => {
         spacing={16}
         py={[16, 0]}
       >
-        {features.map(({ title, description, image }: any, i: number) => {
-          return (
-            <Feature
-              key={`feature_${i}`}
-              title={title}
-              description={description}
-              image={image}
-              reverse={i % 2 === 1}
-            />
-          )
-        })}
+        {features.map(
+          ({ title, description, image }: FeatureType, i: number) => {
+            return (
+              <Feature
+                key={`feature_${i}`}
+                title={title}
+                description={description}
+                image={image}
+                reverse={i % 2 === 1}
+              />
+            )
+          }
+        )}
       </VStack>
       <Container maxW="container.md" centerContent py={[8, 28]}>
         <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">

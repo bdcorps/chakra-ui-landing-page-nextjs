@@ -1,28 +1,33 @@
-export interface Site {
+export interface SiteType {
   name: string
   title: string
   description: string
   image?: string
   video?: string
-  features: Feature[]
-  highlights: Highlight[]
-  faqs: FAQ[]
+  features: FeatureType[]
+  highlights: HighlightType[]
+  faqs: FAQType[]
   twitterHandle: string
 }
 
-export interface Feature {
+export interface FeatureType {
   title: string
   description: string
   image: string
 }
 
-export interface Highlight {
+export interface HighlightType {
   icon: string
   title: string
   description: string
 }
 
-export interface FAQ {
+export interface FAQType {
   q: string
   a: string
+}
+
+export interface CTAType {
+  name: string
+  link: string
 }

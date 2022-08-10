@@ -6,10 +6,10 @@ import {
   AccordionPanel,
   Box,
 } from '@chakra-ui/react'
-import { FAQ } from '../../types'
+import { FAQType } from '../../types'
 
 interface FAQSectionProps {
-  items: FAQ[]
+  items: FAQType[]
 }
 
 export const FAQSection = ({ items }: FAQSectionProps) => {

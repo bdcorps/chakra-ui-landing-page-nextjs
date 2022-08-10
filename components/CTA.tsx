@@ -1,10 +1,10 @@
-import { Button, Container, Text, VStack } from "@chakra-ui/react";
-import React, { FunctionComponent } from "react";
-import { LinkType } from "../types";
+import { Button, Container, Text, VStack } from '@chakra-ui/react'
+import React, { FunctionComponent } from 'react'
+import { CTAType } from '../types'
 
 interface CTAProps {
-  heading: string;
-  cta: LinkType;
+  heading: string
+  cta: CTAType
 }
 
 export const CTA: FunctionComponent<CTAProps> = ({
@@ -36,5 +36,5 @@ export const CTA: FunctionComponent<CTAProps> = ({
         </Button>
       </VStack>
     </Container>
-  );
-};
+  )
+}
