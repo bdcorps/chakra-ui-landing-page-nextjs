@@ -39,19 +39,22 @@ const SiteIndex = () => {
         title: 'Detailed Analytics',
         description:
           "No more spending hours writing formulas in Excel to figure out how much you're making. We surface important metrics to keep your business going strong.",
-        image: './feature1.png',
+        image:
+          'https://launchman-space.nyc3.digitaloceanspaces.com/chakra-ui-landing-page-feature-1.png',
       },
       {
         title: 'Track your clients',
         description:
           'Know when and how your projects are going so you can stay on top of delivery dates.',
-        image: './feature2.png',
+        image:
+          'https://launchman-space.nyc3.digitaloceanspaces.com/chakra-ui-landing-page-feature-2.png',
       },
       {
         title: 'Manage projects',
         description:
           "You don't have to hunt your email inbox to find that one conversation. Every task, project, and client information is just a click away.",
-        image: './feature3.png',
+        image:
+          'https://launchman-space.nyc3.digitaloceanspaces.com/chakra-ui-landing-page-feature-3.png',
       },
     ],
     highlights: [
