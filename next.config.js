@@ -3,5 +3,6 @@ module.exports = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: ["launchman-space.nyc3.digitaloceanspaces.com"],
   reactStrictMode: true,
 }
