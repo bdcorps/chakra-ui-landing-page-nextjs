@@ -15,6 +15,7 @@ import {
   Wrap,
   WrapItem,
 } from '@chakra-ui/react'
+import { NextSeo } from 'next-seo'
 import { CTA } from '../components/CTA'
 import { FAQSection } from '../components/FAQSection'
 import { Feature } from '../components/Feature'
@@ -25,6 +26,7 @@ import { FeatureType, SiteType } from '../types'
 const SiteIndex = () => {
   const site: SiteType = {
     name: 'Biller',
+    logo: 'https://launchman-space.nyc3.digitaloceanspaces.com/launchman-logo.png',
     title: "You don't have to chase your clients around to get paid",
     description:
       'Freelancers use Biller to accept payments and send invoices to clients with a single click',
@@ -101,6 +103,7 @@ const SiteIndex = () => {
 
   const {
     name,
+    logo,
     title,
     description,
     image,
@@ -112,37 +115,43 @@ const SiteIndex = () => {
   } = site
 
   return (
-    <Layout>
-      <Container maxW="container.lg">
-        <Box>
-          <Center p={4} minHeight="70vh">
-            <VStack>
-              <Container maxW="container.md" textAlign="center">
-                <Heading as="h1" size="2xl" mb={4} color="gray.700">
-                  {title}
-                </Heading>
-                <Text as="h2" fontSize="xl" color="gray.500">
-                  {description}
-                </Text>
-                <Button mt={8} colorScheme="brand">
-                  I need this for $10/month →
-                </Button>
+    <>
+      <NextSeo
+        title={`${name} | ${title}`}
+        description={description}
+        additionalLinkTags={[{ rel: 'icon', href: site.logo }]}
+      />
+      <Layout>
+        <Container maxW="container.lg">
+          <Box>
+            <Center p={4} minHeight="70vh">
+              <VStack>
+                <Container maxW="container.md" textAlign="center">
+                  <Heading as="h1" size="2xl" mb={4} color="gray.700">
+                    {title}
+                  </Heading>
+                  <Text as="h2" fontSize="xl" color="gray.500">
+                    {description}
+                  </Text>
+                  <Button mt={8} colorScheme="brand">
+                    I need this for $10/month →
+                  </Button>
 
-                <Text my={2} fontSize="sm" color="gray.500">
-                  102+ builders have signed up in the last 30 days
-                </Text>
-              </Container>
-            </VStack>
-          </Center>
-        </Box>
-      </Container>
-      <Container maxW="container.xl">
-        <Center p={[0, 10]}>
-          <video playsInline autoPlay muted poster={image} loop>
-            <source src={video} type="video/mp4" />
-          </video>
+                  <Text my={2} fontSize="sm" color="gray.500">
+                    102+ builders have signed up in the last 30 days
+                  </Text>
+                </Container>
+              </VStack>
+            </Center>
+          </Box>
+        </Container>
+        <Container maxW="container.xl">
+          <Center p={[0, 10]}>
+            <video playsInline autoPlay muted poster={image} loop>
+              <source src={video} type="video/mp4" />
+            </video>
 
-          {/*
+            {/*
           if you want to show an image instead, uncomment this
 
           <Image
@@ -150,106 +159,107 @@ const SiteIndex = () => {
               src={image}
               alt="Sample product image from attio.com"
             ></Image> */}
-        </Center>
-      </Container>
-      <Box w="full">
-        <Container maxW="container.2xl" centerContent py={[20]}>
-          <Text color="gray.600" fontSize="lg">
-            Used by teams worldwide
-          </Text>
-
-          <Wrap
-            spacing={[10, 20]}
-            mt={8}
-            align="center"
-            justify="center"
-            w="full"
-          >
-            <WrapItem>
-              <Image src="./logo-1.svg" alt="Microsoft logo" />
-            </WrapItem>
-            <WrapItem>
-              <Image src="./logo-2.svg" alt="Adobe logo" />
-            </WrapItem>
-            <WrapItem>
-              <Image src="./logo-1.svg" alt="Microsoft logo" />
-            </WrapItem>
-            <WrapItem>
-              <Image src="./logo-2.svg" alt="Adobe logo" />
-            </WrapItem>
-          </Wrap>
+          </Center>
         </Container>
-      </Box>
-      <VStack
-        backgroundColor="white"
-        w="full"
-        id="features"
-        spacing={16}
-        py={[16, 0]}
-      >
-        {features.map(
-          ({ title, description, image }: FeatureType, i: number) => {
-            return (
-              <Feature
-                key={`feature_${i}`}
-                title={title}
-                description={description}
-                image={image}
-                reverse={i % 2 === 1}
-              />
-            )
-          }
-        )}
-      </VStack>
-      <Container maxW="container.md" centerContent py={[8, 28]}>
-        <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">
-          {highlights.map(({ title, description, icon }, i: number) => (
-            <Box p={4} rounded="md" key={`highlight_${i}`}>
-              <Text fontSize="4xl">{icon}</Text>
-              <Text fontWeight={500}>{title}</Text>
-              <Text color="gray.500" mt={4}>
-                {description}
-              </Text>
-            </Box>
-          ))}
-        </SimpleGrid>
-      </Container>
-      <Container py={28} maxW="container.lg" w="full" id="pricing">
-        <PricingSection />
-      </Container>
-      <Container py={28} maxW="container.md">
         <Box w="full">
-          <VStack spacing={10} w="full">
-            <Text fontWeight={500} fontSize="2xl" align="center">
-              Frequently asked questions
+          <Container maxW="container.2xl" centerContent py={[20]}>
+            <Text color="gray.600" fontSize="lg">
+              Used by teams worldwide
             </Text>
-            <FAQSection items={faqs} />
-          </VStack>
-        </Box>
-      </Container>
-      <CTA
-        heading={`Get started with ${site.name}  today!`}
-        cta={{ name: 'I want this!', link: '#' }}
-      />
-      <Container maxW="container.lg">
-        <Flex py={6}>
-          <Box>
-            <Text>© 2022 {site.name}</Text>
-            <Text>Made by Sukh</Text>
-          </Box>
-          <Spacer />
 
-          <LinkBox>
-            <LinkOverlay
-              href={`https://twitter.com/${twitterHandle}`}
-              isExternal
+            <Wrap
+              spacing={[10, 20]}
+              mt={8}
+              align="center"
+              justify="center"
+              w="full"
             >
-              <Image src="./twitter.svg" alt="Twitter logo"></Image>
-            </LinkOverlay>
-          </LinkBox>
-        </Flex>
-      </Container>
-    </Layout>
+              <WrapItem>
+                <Image src="./logo-1.svg" alt="Microsoft logo" />
+              </WrapItem>
+              <WrapItem>
+                <Image src="./logo-2.svg" alt="Adobe logo" />
+              </WrapItem>
+              <WrapItem>
+                <Image src="./logo-1.svg" alt="Microsoft logo" />
+              </WrapItem>
+              <WrapItem>
+                <Image src="./logo-2.svg" alt="Adobe logo" />
+              </WrapItem>
+            </Wrap>
+          </Container>
+        </Box>
+        <VStack
+          backgroundColor="white"
+          w="full"
+          id="features"
+          spacing={16}
+          py={[16, 0]}
+        >
+          {features.map(
+            ({ title, description, image }: FeatureType, i: number) => {
+              return (
+                <Feature
+                  key={`feature_${i}`}
+                  title={title}
+                  description={description}
+                  image={image}
+                  reverse={i % 2 === 1}
+                />
+              )
+            }
+          )}
+        </VStack>
+        <Container maxW="container.md" centerContent py={[8, 28]}>
+          <SimpleGrid spacingX={10} spacingY={20} minChildWidth="300px">
+            {highlights.map(({ title, description, icon }, i: number) => (
+              <Box p={4} rounded="md" key={`highlight_${i}`}>
+                <Text fontSize="4xl">{icon}</Text>
+                <Text fontWeight={500}>{title}</Text>
+                <Text color="gray.500" mt={4}>
+                  {description}
+                </Text>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </Container>
+        <Container py={28} maxW="container.lg" w="full" id="pricing">
+          <PricingSection />
+        </Container>
+        <Container py={28} maxW="container.md">
+          <Box w="full">
+            <VStack spacing={10} w="full">
+              <Text fontWeight={500} fontSize="2xl" align="center">
+                Frequently asked questions
+              </Text>
+              <FAQSection items={faqs} />
+            </VStack>
+          </Box>
+        </Container>
+        <CTA
+          heading={`Get started with ${site.name}  today!`}
+          cta={{ name: 'I want this!', link: '#' }}
+        />
+        <Container maxW="container.lg">
+          <Flex py={6}>
+            <Box>
+              <Text>© 2022 {site.name}</Text>
+              <Text>Made by Sukh</Text>
+            </Box>
+            <Spacer />
+
+            <LinkBox>
+              <LinkOverlay
+                href={`https://twitter.com/${twitterHandle}`}
+                isExternal
+              >
+                <Image src="./twitter.svg" alt="Twitter logo"></Image>
+              </LinkOverlay>
+            </LinkBox>
+          </Flex>
+        </Container>
+      </Layout>
+    </>
   )
 }
 

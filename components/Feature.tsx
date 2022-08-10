@@ -35,7 +35,7 @@ export const Feature: FunctionComponent<FeatureProps> = ({
           h="full"
         >
           <Box>
-            <Image src={image} rounded="lg" />
+            <Image src={image} rounded="lg" alt={`Feature: ${title}`} />
           </Box>
 
           <VStack maxW={500} spacing={4} align={['center', 'flex-start']}>

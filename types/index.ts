@@ -1,5 +1,6 @@
 export interface SiteType {
   name: string
+  logo: string
   title: string
   description: string
   image?: string
