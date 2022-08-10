@@ -10,7 +10,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }: LayoutProps) => {
   return (
     <Box bg="gray.50">
       <VStack spacing={10} w="full" align="center">
-        <Header name="Blog" />
+        <Header name="Landing Page" />
         {children}
       </VStack>
     </Box>
