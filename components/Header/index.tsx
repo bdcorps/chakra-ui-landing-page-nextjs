@@ -20,7 +20,6 @@ import {
   Stack,
   useDisclosure,
 } from '@chakra-ui/react'
-import React from 'react'
 
 const navLinks = [
   { name: 'Home', link: '/' },
@@ -85,8 +84,8 @@ const MobileSidebar = ({ name }: any) => {
         <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="xs">
           <DrawerOverlay />
           <DrawerContent bg="gray.50">
-            <DrawerCloseButton />
             <DrawerHeader>{name}</DrawerHeader>
+            <DrawerCloseButton />
 
             <DrawerBody>
               <DesktopSidebarContents />
@@ -116,16 +115,14 @@ const Sidebar = ({ name }: SidebarProps) => {
   )
 }
 
-interface DrawerHomeProps {
+interface HeaderProps {
   name: string
 }
 
-const DrawerHome = ({ name }: DrawerHomeProps) => {
+export const Header = ({ name }: HeaderProps) => {
   return (
     <Box w="full">
       <Sidebar name={name} />
     </Box>
   )
 }
-
-export default DrawerHome
