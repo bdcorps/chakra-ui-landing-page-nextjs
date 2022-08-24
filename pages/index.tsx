@@ -23,7 +23,7 @@ import Layout from '../components/Layout'
 import { PricingSection } from '../components/PricingSection'
 import { FeatureType, SiteType } from '../types'
 
-const SiteIndex = () => {
+const LandingPage = () => {
   const site: SiteType = {
     name: 'Biller',
     logo: 'https://launchman-space.nyc3.digitaloceanspaces.com/launchman-logo.png',
@@ -126,27 +126,25 @@ const SiteIndex = () => {
       />
       <Layout>
         <Container maxW="container.lg">
-          <Box>
-            <Center p={4} minHeight="70vh">
-              <VStack>
-                <Container maxW="container.md" textAlign="center">
-                  <Heading as="h1" size="2xl" mb={4} color="gray.700">
-                    {title}
-                  </Heading>
-                  <Text as="h2" fontSize="xl" color="gray.500">
-                    {description}
-                  </Text>
-                  <Button mt={8} colorScheme="brand">
-                    I need this for $10/month →
-                  </Button>
+          <Center p={4} minHeight="70vh">
+            <VStack>
+              <Container maxW="container.md" textAlign="center">
+                <Heading as="h1" size="2xl" mb={4} color="gray.700">
+                  {title}
+                </Heading>
+                <Text as="h2" fontSize="xl" color="gray.500">
+                  {description}
+                </Text>
+                <Button mt={8} colorScheme="brand">
+                  I need this for $10/month →
+                </Button>
 
-                  <Text my={2} fontSize="sm" color="gray.500">
-                    102+ builders have signed up in the last 30 days
-                  </Text>
-                </Container>
-              </VStack>
-            </Center>
-          </Box>
+                <Text my={2} fontSize="sm" color="gray.500">
+                  102+ builders have signed up in the last 30 days
+                </Text>
+              </Container>
+            </VStack>
+          </Center>
         </Container>
         <Container maxW="container.xl">
           <Center p={[0, 10]}>
@@ -271,4 +269,4 @@ const SiteIndex = () => {
   )
 }
 
-export default SiteIndex
+export default LandingPage
