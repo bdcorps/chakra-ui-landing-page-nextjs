@@ -4,4 +4,8 @@ module.exports = {
     defaultLocale: "en",
   },
   reactStrictMode: true,
+  images: {
+    domains: ['launchman-space.nyc3.digitaloceanspaces.com'],
+  },
+
 }

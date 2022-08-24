@@ -261,6 +261,11 @@ const SiteIndex = () => {
             </LinkBox>
           </Flex>
         </Container>
+
+        <CTA
+          heading={`Get started with Biller  today!`}
+          cta={{ name: 'I want this!', link: '#' }}
+        />
       </Layout>
     </>
   )
