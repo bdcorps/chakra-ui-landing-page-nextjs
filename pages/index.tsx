@@ -19,7 +19,7 @@ import { NextSeo } from 'next-seo'
 import { CTA } from '../components/CTA'
 import { FAQSection } from '../components/FAQSection'
 import { Feature } from '../components/Feature'
-import Layout from '../components/Layout'
+import { Layout } from '../components/Layout'
 import { PricingSection } from '../components/PricingSection'
 import { FeatureType, SiteType } from '../types'
 

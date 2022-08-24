@@ -5,7 +5,10 @@ import { Header } from '../Header'
 interface LayoutProps {
   children: React.ReactNode
 }
-const Layout: FunctionComponent<LayoutProps> = ({ children }: LayoutProps) => {
+
+export const Layout: FunctionComponent<LayoutProps> = ({
+  children,
+}: LayoutProps) => {
   return (
     <Box bg="gray.50">
       <VStack spacing={10} w="full" align="center">
@@ -15,5 +18,3 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }: LayoutProps) => {
     </Box>
   )
 }
-
-export default Layout
